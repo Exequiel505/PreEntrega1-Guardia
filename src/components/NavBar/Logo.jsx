@@ -4,7 +4,6 @@ const Logo = () => {
   return (
     <div  id="logo">
         <img src={ logo } alt= "Logo" className="img-fluid"/>
-        <h1>hola</h1>
     </div>
         
     

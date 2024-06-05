@@ -1,40 +1,50 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import ItemList from "./ItemList";
-import getProducts from "../../data/data";
+import db from "../../db/db.js";
 
-const ItemListContainer = ({ saludo }) => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { idCategory } = useParams();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
+  const getProducts = () => {
+    const productsRef = collection(db, "products");
+    getDocs(productsRef).then((productsDb) => {
+      const data = productsDb.docs.map((product) => {
+        return { id: product.id, ...product.data() };
+      });
+      setProducts(data);
+    });
+  };
+  const getProductsByCategory = () => {
+    const productsRef = collection(db, "products");
+    const q = query(productsRef, where("category", "==", idCategory));
+    getDocs(q).then((productsDb) => {
+      const data = productsDb.docs.map((product) => {
+        return { id: product.id, ...product.data() };
+      });
+      setProducts(data);
+    });
+  };
 
   useEffect(() => {
-    setLoading(true)
-    getProducts()
-      .then((respuesta) => {
-        if (idCategory) {
-          const productsFilter = respuesta.filter(
-            (productRes) => productRes.category === idCategory
-          );
-          setProducts(productsFilter);
-        } else {
-          setProducts(respuesta);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (idCategory) {
+      getProductsByCategory();
+    } else {
+      getProducts();
+    }
   }, [idCategory]);
 
   return (
     <div>
-      <h2>{saludo}</h2>
-      {
-      loading ? <div>Cargando...</div> : <ItemList products={products} />
-      }
+      <h2>
+        {idCategory
+          ? `Filtrado por categoria: ${idCategory}`
+          : "Bienvenidos a mi eccomerce"}
+      </h2>
+      {loading ? <div>Cargando...</div> : <ItemList products={products} />}
     </div>
   );
 };

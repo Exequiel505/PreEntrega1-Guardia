@@ -1,4 +1,4 @@
-# Eccomerce Tru Gamers
+# Eccomerce True Gamers
 
 #### `Dev - Exequiel Guardia`
 

@@ -3,6 +3,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
 import { CartContex } from "../../context/CartContex";
 import { Link } from "react-router-dom";
+
+import "./cartWidget.css"
+
 const CartWidget = () => {
   const { cantidadTotal } = useContext(CartContex);
   let cantidad = cantidadTotal();
@@ -11,8 +14,8 @@ const CartWidget = () => {
       to="/cart"
       className={cantidad >= 1 ? "cartwidget cart-red" : "cartwidget cart-blue"}
     >
-      <FaShoppingCart />
-      <p>{cantidad >= 1 && cantidad}</p>
+      <FaShoppingCart className="carrito"/>
+      <p className="number">{cantidad >= 1 && cantidad}</p>
     </Link>
   );
 };

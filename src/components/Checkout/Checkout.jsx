@@ -7,6 +7,8 @@ import { CartContex } from "../../context/CartContex";
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { toast } from "react-toastify";
 
+import "./checkout.css"
+
 const Checkout = () => {
   const [datosForm, setDatosForm] = useState({
     nombre: "",
@@ -65,11 +67,11 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <div className="checkout">
       {idOrden ? (
-        <div>
+        <div className="order-generated">
           <h2>Orden generada con exito</h2>
-          <p>guarde el id de su orden : {idOrden}</p>
+          <p>Por favor guarde el id de su orden : {idOrden}</p>
         </div>
       ) : (
         <Formulario

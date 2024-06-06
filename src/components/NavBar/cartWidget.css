@@ -1,0 +1,17 @@
+.cartwidget{
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    text-decoration: none;
+}
+
+.cartwidget .number{
+    padding-top: 40%;
+}
+
+.cart-red{
+    color: red;
+}
+.cart-blue{
+    color: blue;
+}

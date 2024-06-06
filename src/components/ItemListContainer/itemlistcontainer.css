@@ -1,0 +1,22 @@
+.item-list-container {
+    padding: 1% 2%;
+  }
+  .item-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .item {
+    flex-basis: 21%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .image-item {
+    margin: 5%;
+  }
+  .item-name{
+    color: black;
+  }

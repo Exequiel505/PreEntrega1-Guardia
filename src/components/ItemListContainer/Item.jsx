@@ -14,16 +14,16 @@ const Item = ({ product }) => {
     transition: "transform 0.3s ease-in-out",
   };
   return (
-    <div
+    <Link
+      className="item"
+      to={`/detail/${product.id}`}
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       style={estiloCard}
     >
-      <img src={product.image} />
-      <p>{product.name}</p>
-      <p> precio : {product.price}</p>
-      <Link to={`/detail/${product.id}`}>Ver detalles</Link>
-    </div>
+      <img src={product.image} className="image-item" />
+      <p className="item-name">{product.name}</p>
+    </Link>
   );
 };
 

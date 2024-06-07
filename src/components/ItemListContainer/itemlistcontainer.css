@@ -1,5 +1,6 @@
 .item-list-container {
     padding: 1% 2%;
+    color: #FFFFFF;
   }
   .item-list {
     display: flex;
@@ -18,5 +19,5 @@
     margin: 5%;
   }
   .item-name{
-    color: black;
+    color: #FFFFFF;
   }

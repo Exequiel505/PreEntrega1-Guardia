@@ -7,7 +7,7 @@ import { CartContex } from "../../context/CartContex";
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { toast } from "react-toastify";
 
-import "./checkout.css"
+import "./checkout.css";
 
 const Checkout = () => {
   const [datosForm, setDatosForm] = useState({

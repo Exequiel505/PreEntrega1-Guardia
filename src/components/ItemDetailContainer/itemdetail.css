@@ -12,9 +12,11 @@
   .content-detail{
     width: 50%;
     padding: 0 0.1%;
+    color: #ffff;
   }
   .name-detail{
     font-size: 2.5rem;
+    color: #ffff;
   }
   .text-detail{
     font-size: 100%;
